@@ -104,7 +104,7 @@
 		aoe*=justicemod
 		if(L == user || ishuman(L) || L == target)
 			continue
-		L.apply_damage(force, BLACK_DAMAGE, null, L.run_armor_check(null, BLACK_DAMAGE), spread_damage = TRUE)
+		L.apply_damage(aoe, BLACK_DAMAGE, null, L.run_armor_check(null, BLACK_DAMAGE), spread_damage = TRUE)
 		new /obj/effect/temp_visual/small_smoke/halfsecond(get_turf(L))
 
 	user.changeNext_move(CLICK_CD_MELEE * 3)
