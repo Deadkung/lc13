@@ -84,7 +84,7 @@
 			to_chat(user, span_notice("You stoke the flames, and it burns hotter."))
 
 /mob/living/simple_animal/hostile/abnormality/ardor_moth/proc/Stoke()
-	 stoked = FALSE
+	stoked = FALSE
 
 /mob/living/simple_animal/hostile/abnormality/ardor_moth/Move()
 	..()
