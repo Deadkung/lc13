@@ -135,5 +135,5 @@
 	addtimer(CALLBACK(src, PROC_REF(DoDamage)), 4)
 
 /mob/simple_animal/hostile/abnormality/ardor_moth/Destroy(force)
-deltimer(stoke_timer)
-return ..()
+	deltimer(stoke_timer)
+	return ..()
