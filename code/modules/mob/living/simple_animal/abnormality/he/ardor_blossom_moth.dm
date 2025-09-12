@@ -63,6 +63,10 @@
 
 	var/stoked
 	var/stoke_timer
+	light_color = COLOR_ORANGE
+	light_range = 5
+	light_power = 7
+	light_on = FALSE
 
 /mob/living/simple_animal/hostile/abnormality/ardor_moth/WorkChance(mob/living/carbon/human/user, chance, work_type)
 	if(stoked)
@@ -78,13 +82,17 @@
 	switch(work_type)
 		if(ABNORMALITY_WORK_ATTACHMENT)
 			stoked = TRUE
+			light_on = TRUE
+			update_light()
 			deltimer(stoke_timer)
-			stoke_timer = addtimer(CALLBACK(src, PROC_REF(Stoke)), 2 MINUTES, TIMER_STOPPABLE)
+			stoke_timer = addtimer(CALLBACK(src, PROC_REF(Stoke)), 2 MINUTES, TIMER_STOPPABLE) // eventually add a light to amoth so that it's more obvious that it's stoked
 			user.client?.give_award(/datum/award/achievement/abno/kindling, user)
 			to_chat(user, span_notice("You stoke the flames, and it burns hotter."))
 
 /mob/living/simple_animal/hostile/abnormality/ardor_moth/proc/Stoke()
 	stoked = FALSE
+	light_on = FALSE
+	update_light()
 
 /mob/living/simple_animal/hostile/abnormality/ardor_moth/Move()
 	..()
@@ -134,6 +142,6 @@
 		return
 	addtimer(CALLBACK(src, PROC_REF(DoDamage)), 4)
 
-/mob/simple_animal/hostile/abnormality/ardor_moth/Destroy(force)
+/mob/living/simple_animal/hostile/abnormality/ardor_moth/Destroy(force)
 	deltimer(stoke_timer)
 	return ..()
