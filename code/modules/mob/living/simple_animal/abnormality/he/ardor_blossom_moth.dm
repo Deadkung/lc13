@@ -85,7 +85,7 @@
 			light_on = TRUE
 			update_light()
 			deltimer(stoke_timer)
-			stoke_timer = addtimer(CALLBACK(src, PROC_REF(Stoke)), 2 MINUTES, TIMER_STOPPABLE) // eventually add a light to amoth so that it's more obvious that it's stoked
+			stoke_timer = addtimer(CALLBACK(src, PROC_REF(Stoke)), 2 MINUTES, TIMER_STOPPABLE)
 			user.client?.give_award(/datum/award/achievement/abno/kindling, user)
 			to_chat(user, span_notice("You stoke the flames, and it burns hotter."))
 
