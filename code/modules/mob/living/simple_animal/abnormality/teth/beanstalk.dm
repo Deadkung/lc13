@@ -98,9 +98,7 @@
 		climbinganimation(user)
 		sleep(7 SECONDS)
 		if(user_prud < 40) //deathcheck
-			fallinganimation(user)
-			sleep(3 SECONDS)
-			headexplode(user)
+			QDEL_IN(user, 1)
 			return
 		else //item time
 			sleep(3 SECONDS)
@@ -186,10 +184,7 @@
 			climbinganimation(user)
 			sleep(7 SECONDS)
 			if(user_prud < 40) //deathcheck
-				to_chat(user, span_userdanger("You snap out of it as you lose your grip on the beanstalk!"))
-				fallinganimation(user)
-				sleep(3 SECONDS)
-				headexplode(user)
+				QDEL_IN(user, 1)
 				return
 			else //item time
 				sleep(3 SECONDS)
