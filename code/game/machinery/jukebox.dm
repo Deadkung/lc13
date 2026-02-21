@@ -494,10 +494,19 @@
 	. = ..()
 	// Clear any songs loaded from file system
 	songs = list()
-	// Add the single Middle track
-	var/datum/track/T = new("Middle Finger Theme", 'sound/effects/lc13_environment/middle_finger_toujou.ogg', 420, 5)
-	songs += T
-	selection = T
+	// Adds several middle tracks!
+	var/datum/track/T = new("The Middle Appears!", 'sound/effects/lc13_environment/middle_finger_toujou.ogg', 420, 5)
+	var/datum/track/Y = new("Theme Of A Big Brother's Vengeance", 'sound/effects/lc13_environment/canto_5_boss_1_battle_theme.ogg', 1820, 5)
+	var/datum/track/U = new("Electronic Devil Maker", 'sound/effects/lc13_environment/electronic_devil_maker.ogg', 690, 5)
+	var/datum/track/I = new("The Middle's Wrath", 'sound/effects/lc13_environment/middle_finger_sanjou.ogg', 1210, 5)
+	var/datum/track/O = new("Theme Of A Great Brother's Vengeance", 'sound/effects/lc13_environment/canto_9_boss_6_battle_theme.ogg', 1890, 5)
+	songs += list(T,
+			      Y,
+			      U,
+			      I,
+			      O
+	)
+	selection = pick(songs)
 
 /obj/machinery/jukebox/middle/ui_status(mob/user)
 	// Skip anchor check since this jukebox doesn't need to be anchored
